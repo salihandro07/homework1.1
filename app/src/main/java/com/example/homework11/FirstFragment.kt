@@ -21,21 +21,28 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpListeners()
+    }
+
+    private fun setUpListeners() {
 
         binding.sendButton.setOnClickListener {
             val name = binding.nameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
 
-            // Создаем Bundle и добавляем данные
-            val bundle = Bundle().apply {
-                putString("name", name)
-                putString("email", email)
-                putString("password", password)
-            }
+            val user = User(
+                name = name,
+                email = email,
+                password = password
+            )
 
             // Переход ко второму фрагменту с передачей Bundle
-            findNavController().navigate(R.id.action_firstFragment_to_secondFragment, bundle)
+            findNavController().navigate(
+                FirstFragmentDirections.actionFirstFragmentToSecondFragment(
+                    user
+                )
+            )
         }
     }
 }

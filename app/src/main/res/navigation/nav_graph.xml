@@ -15,7 +15,10 @@
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.homework11.SecondFragment"
-        android:label="Second Fragment" />
+        android:label="Second Fragment" >
+        <argument android:name="user"
+            app:argType="com.example.homework11.User"/>
+    </fragment>
 
     <fragment
         android:id="@+id/thirdFragment"
