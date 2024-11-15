@@ -8,4 +8,4 @@ data class User(
     val name: String = "",
     val email: String = "",
     val password: String = ""
-) : Parcelable
+) : Parcelable // Класс для хранения данных пользователя
